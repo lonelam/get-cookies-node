@@ -1,9 +1,9 @@
 {
-  "name": "@napi-rs/package-template",
+  "name": "get-cookies-node",
   "version": "1.0.0",
-  "description": "Template project for writing node package with napi-rs",
+  "description": "A rust project to get cookies for prompt to let user login and get the cookies after login, powered by Wry.",
   "main": "index.js",
-  "repository": "git@github.com:napi-rs/package-template.git",
+  "repository": "https://github.com/lonelam/get-cookies-node",
   "license": "MIT",
   "keywords": [
     "napi-rs",
@@ -18,7 +18,7 @@
     "index.js"
   ],
   "napi": {
-    "name": "package-template",
+    "name": "get-cookies-napi",
     "triples": {
       "defaults": true,
       "additional": [

@@ -1,3 +1,3 @@
-# `@napi-rs/package-template-android-arm64`
+# `get-cookies-node-android-arm64`
 
-This is the **aarch64-linux-android** binary for `@napi-rs/package-template`
+This is the **aarch64-linux-android** binary for `get-cookies-node`
