@@ -4,6 +4,7 @@ use get_cookies::read_cookie;
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
 
+#[cfg(target_os="windows")]
 #[napi]
 pub async fn get_cookies(input: String) -> Result<String> {
   read_cookie(&input).await.map_err(|e| {
@@ -13,4 +14,11 @@ pub async fn get_cookies(input: String) -> Result<String> {
       format!("Error reading cookie: {}", e),
     )
   })
+}
+
+
+#[cfg(not(target_os="windows"))]
+#[napi]
+pub async fn get_cookies(input: String) -> Result<String> {
+  Ok(String::from("Currently Not Supported"))
 }
