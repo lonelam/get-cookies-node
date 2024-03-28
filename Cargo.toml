@@ -10,9 +10,11 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-get-cookies = "0.1.0"
 napi = { version = "2", features = ["async"] }
 napi-derive = "2"
+
+[target.'cfg(windows)'.dependencies]
+get-cookies = "0.1.0"
 
 [build-dependencies]
 napi-build = "2"
