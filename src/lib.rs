@@ -3,7 +3,7 @@
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
 
-#[cfg(target_os="windows")]
+#[cfg(target_os = "windows")]
 #[napi]
 pub async fn get_cookies(input: String) -> Result<String> {
   use get_cookies::read_cookie;
@@ -16,8 +16,7 @@ pub async fn get_cookies(input: String) -> Result<String> {
   })
 }
 
-
-#[cfg(not(target_os="windows"))]
+#[cfg(not(target_os = "windows"))]
 #[napi]
 pub async fn get_cookies(input: String) -> Result<String> {
   Ok(String::from("Currently Not Supported"))
