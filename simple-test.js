@@ -1,5 +1,11 @@
-const { plus100 } = require('./index')
+const { get_cookies } = require('./index')
 
-console.assert(plus100(0) === 100, 'Simple test failed')
+async function main() {
+  const cookie = await get_cookies('https://juejin.cn')
+  console.info(cookie)
+}
+// console.assert(plus100(0) === 100, 'Simple test failed')
 
-console.info('Simple test passed')
+main().then(() => {
+  console.info('Simple test passed')
+})
