@@ -14,7 +14,7 @@ napi = { version = "2", features = ["async"] }
 napi-derive = "2"
 
 [target.'cfg(windows)'.dependencies]
-get-cookies = "0.1.0"
+get-cookies = "0.1.2"
 
 [build-dependencies]
 napi-build = "2"

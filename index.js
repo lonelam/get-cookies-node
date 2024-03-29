@@ -234,6 +234,6 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { getCookies } = nativeBinding
+const { getCookieUntilContains } = nativeBinding
 
-module.exports.getCookies = getCookies
+module.exports.getCookieUntilContains = getCookieUntilContains

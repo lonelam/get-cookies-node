@@ -1,7 +1,8 @@
-const { get_cookies } = require('./index')
+// import { get_cookies } from './index'
+const { getCookies } = require('./index')
 
 async function main() {
-  const cookie = await get_cookies('https://juejin.cn')
+  const cookie = await getCookies('https://zhihu.com/')
   console.info(cookie)
 }
 // console.assert(plus100(0) === 100, 'Simple test failed')
