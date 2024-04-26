@@ -18,7 +18,29 @@ pub async fn get_cookie_until_contains(input: String, matcher: String) -> Result
     })
 }
 
-#[cfg(not(target_os = "windows"))]
+#[cfg(target_os = "macos")]
+#[napi]
+pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
+  use get_cookies::read_cookie_until_sync;
+
+  read_cookie_until_sync(&input, move |cookie_str| {
+    // #[cfg(debug_assertions)]
+    println!(
+      "The latest cookies are {}, matching {}",
+      cookie_str, matcher
+    );
+    cookie_str.contains(&matcher)
+  })
+  .map_err(|e| {
+    // Convert your error to `napi::Error` here
+    napi::Error::new(
+      napi::Status::GenericFailure,
+      format!("Error reading cookie: {}", e),
+    )
+  })
+}
+
+#[cfg(target_os = "linux")]
 #[napi]
 pub async fn get_cookies(input: String) -> Result<String> {
   Ok(String::from("Currently Not Supported"))
