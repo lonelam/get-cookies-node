@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 [dependencies]
 napi = { version = "2", features = ["async"] }
 napi-derive = "2"
-get-cookies = "0.1.7"
+get-cookies = "0.1.8"
 
 [build-dependencies]
 napi-build = "2"
