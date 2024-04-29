@@ -18,7 +18,7 @@ pub async fn get_cookie_until_contains(input: String, matcher: String) -> Result
     })
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", target_os = "linux"))]
 #[napi]
 pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
   use get_cookies::read_cookie_until_sync;
@@ -38,10 +38,4 @@ pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<Strin
       format!("Error reading cookie: {}", e),
     )
   })
-}
-
-#[cfg(target_os = "linux")]
-#[napi]
-pub async fn get_cookies(input: String) -> Result<String> {
-  Ok(String::from("Currently Not Supported"))
 }
