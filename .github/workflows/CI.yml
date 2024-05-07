@@ -46,6 +46,8 @@ jobs:
             docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
             setup: |
               export DEBIAN_FRONTEND=noninteractive
+              debconf-show debconf
+              echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
               echo ${{ github.workspace }}
               echo $GITHUB_WORKSPACE
               sudo apt-get update
