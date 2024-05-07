@@ -43,13 +43,8 @@ jobs:
             target: i686-pc-windows-msvc
           - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
+            # docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
             build: |-
-              export DEBIAN_FRONTEND=noninteractive
-              sudo debconf-show debconf
-              echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
-              echo ${{ github.workspace }}
-              echo $GITHUB_WORKSPACE
               sudo apt-get update
               sudo apt-get install libwebkit2gtk-4.1-dev -y
               set -e &&
@@ -456,6 +451,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
+          registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn install
       - name: Download all artifacts
@@ -484,3 +480,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
