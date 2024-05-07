@@ -43,8 +43,9 @@ jobs:
             target: i686-pc-windows-msvc
           - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            # docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
+            docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
             setup: |
+              export DEBIAN_FRONTEND=noninteractive
               echo ${{ github.workspace }}
               echo $GITHUB_WORKSPACE
               sudo apt-get update
