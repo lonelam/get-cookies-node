@@ -41,17 +41,17 @@ jobs:
               yarn build --target i686-pc-windows-msvc
               yarn test
             target: i686-pc-windows-msvc
-          # - host: ubuntu-latest
-          #   target: x86_64-unknown-linux-gnu
-          #   docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
-          #   setup: |
-          #     sudo apt-get update
-          #   build: |-
-          #     sudo apt-get update
-          #     sudo apt-get install libwebkit2gtk-4.1-dev -y
-          #     set -e &&
-          #     yarn build --target x86_64-unknown-linux-gnu &&
-          #     strip *.node
+          - host: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
+            setup: |
+              sudo apt-get update
+            build: |-
+              sudo apt-get update &&
+              sudo apt-get install libwebkit2gtk-4.1-dev -y &&
+              set -e &&
+              yarn build --target x86_64-unknown-linux-gnu &&
+              strip *.node
           # - host: ubuntu-latest
           #   target: x86_64-unknown-linux-musl
           #   docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-alpine
