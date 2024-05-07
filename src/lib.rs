@@ -20,7 +20,7 @@ pub async fn get_cookie_until_contains(input: String, matcher: String) -> Result
 
 #[cfg(target_os = "macos")]
 #[napi]
-pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
+pub async fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
   use get_cookies::read_cookie_until_sync;
 
   read_cookie_until_sync(&input, move |cookie_str| {
@@ -40,11 +40,10 @@ pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<Strin
   })
 }
 
-
 #[cfg(target_os = "linux")]
 #[napi]
-pub fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
-  use get_cookies:: read_cookie_until_sync;
+pub async fn get_cookie_until_contains(input: String, matcher: String) -> Result<String> {
+  use get_cookies::read_cookie_until_sync;
 
   read_cookie_until_sync(&input, move |cookie_str| {
     // #[cfg(debug_assertions)]

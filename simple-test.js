@@ -3,8 +3,8 @@ const { getCookieUntilContains } = require('./index')
 
 async function main() {
   const cookie = await getCookieUntilContains('https://juejin.cn', 'Token=')
-  await new Promise(resolve => {
-    setTimeout(resolve, 10000);
+  await new Promise((resolve) => {
+    setTimeout(resolve, 10000)
   })
   console.info(cookie)
 }

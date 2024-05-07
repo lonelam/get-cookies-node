@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "A rust project to get cookies for prompt to let user login and get the cookies after login, powered by Wry.",
   "main": "index.js",
-  "repository": "https://github.com/lonelam/get-cookies-node",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonelam/get-cookies-node.git"
+  },
   "license": "MIT",
   "keywords": [
     "napi-rs",
@@ -107,5 +110,20 @@
     "singleQuote": true,
     "arrowParens": "always"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.1.1",
+  "optionalDependencies": {
+    "get-cookies-node-win32-x64-msvc": "1.0.0",
+    "get-cookies-node-darwin-x64": "1.0.0",
+    "get-cookies-node-linux-x64-gnu": "1.0.0",
+    "get-cookies-node-linux-x64-musl": "1.0.0",
+    "get-cookies-node-linux-arm64-gnu": "1.0.0",
+    "get-cookies-node-win32-ia32-msvc": "1.0.0",
+    "get-cookies-node-linux-arm-gnueabihf": "1.0.0",
+    "get-cookies-node-darwin-arm64": "1.0.0",
+    "get-cookies-node-android-arm64": "1.0.0",
+    "get-cookies-node-freebsd-x64": "1.0.0",
+    "get-cookies-node-linux-arm64-musl": "1.0.0",
+    "get-cookies-node-win32-arm64-msvc": "1.0.0",
+    "get-cookies-node-android-arm-eabi": "1.0.0"
+  }
 }
